@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: 400px 400px;
   grid-auto-flow: row;
+  position: sticky;
+  align-self: start;
+  top: 10px;
+
 }
 
 .first-item {

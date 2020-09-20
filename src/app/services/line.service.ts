@@ -1,21 +1,34 @@
 import {Injectable} from '@angular/core';
 import {CodeLineModel} from '../models/codeLine.model';
 import {CodeModel} from '../models/code.model';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LineService {
-  lineModel: CodeLineModel;
   codeModel: CodeModel;
+  omniStatements: any;
 
   constructor() {
-    this.lineModel = {
-      lineNumber: 100,
-      code: '1234567890123456789012345678901234567890',
-      order: 100,
-      statement: 100,
-      lineBackgroundColor: 'undefined'
-    };
+    this.codeModel = {codeLines: [], traceList: []};
+    this.omniStatements = {};
+  }
+
+  generateOmniStatements() {
+    this.codeModel.codeLines.forEach(codeLine => {
+      if (codeLine.statement) {
+        this.omniStatements[codeLine.statement] = codeLine;
+        this.omniStatements[codeLine.statement].activeLine = new Subject<any>();
+      }
+    });
+  }
+
+  setTraceToStatement() {
+    this.codeModel.traceList.forEach(traceDtoModel => {
+      if (this.omniStatements[traceDtoModel.statement]) {
+        this.omniStatements[traceDtoModel.statement].order = traceDtoModel.orderNumber;
+      }
+    });
   }
 }

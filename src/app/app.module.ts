@@ -10,6 +10,7 @@ import { TraceComponent } from './components/trace/trace.component';
 import { WidgetSideComponent } from './components/trace/widget-side/widget-side.component';
 import { FileWidgetComponent } from './components/trace/widget-side/file-widget/file-widget.component';
 import {FormsModule} from '@angular/forms';
+import { LineManipulatorDirective } from './Directives/line-manipulator.directive';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {FormsModule} from '@angular/forms';
     TraceComponent,
     WidgetSideComponent,
     FileWidgetComponent,
+    LineManipulatorDirective,
   ],
   imports: [
     BrowserModule,

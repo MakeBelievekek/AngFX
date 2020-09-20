@@ -13,10 +13,12 @@ export class FileWidgetComponent implements OnInit {
   @ViewChild('coblist') coblistElement: ElementRef;
   coblistPath: string;
   tracePath: string;
+
   constructor(private codeHttpService: CodeHttpService, private lineService: LineService) {
   }
 
   ngOnInit(): void {
+    console.log(this.lineService.codeModel.codeLines);
   }
 
 
@@ -24,21 +26,30 @@ export class FileWidgetComponent implements OnInit {
     if (this.coblistPath) {
       this.codeHttpService.postCooblistFileLocation({filePath: this.coblistPath}).subscribe(
         value => {
-          this.lineService.codeModel = (value as CodeModel);
-          console.log('ez az amit nézel: ', this.lineService.codeModel);
+          this.lineService.codeModel.codeLines = (value as CodeModel).codeLines;
+          this.lineService.generateOmniStatements();
         }
       );
     }
   }
 
   getTrace() {
-
     if (this.tracePath) {
       this.codeHttpService.postTraceFileLocation({filePath: this.tracePath}).subscribe(
-        value => value
+        value => {
+          this.lineService.codeModel.traceList = value.traceList;
+          this.lineService.setTraceToStatement();
+        }
       );
     }
+  }
+
+  takeMeHome() {
+    this.lineService.omniStatements[322].lineBackgroundColor = 'yellow';
+    this.lineService.omniStatements[322].activeLine.next('baszodjmeg');
+    console.log(this.lineService.omniStatements[322]);
   }
 }
 
 // C:\Users\Pupu\Desktop\res\kek.txt
+// C:\Users\Pupu\Desktop\res\trace.txt
