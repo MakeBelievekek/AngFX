@@ -2,6 +2,7 @@ import {Component, HostBinding, Input, OnInit} from '@angular/core';
 import {LineService} from '../../../../services/line.service';
 import {SafeStyle} from '@angular/platform-browser';
 import {CodeLineModel} from '../../../../models/codeLine.model';
+import {CodeModel} from '../../../../models/code.model';
 
 @Component({
   selector: 'app-code-line',
@@ -12,6 +13,8 @@ export class CodeLineComponent implements OnInit {
   @HostBinding('style.backgroundColor') backgroundColor: SafeStyle;
   @Input() setBackgroundColor: string;
   @Input() codeLine: CodeLineModel;
+  @Input() codeModel: CodeModel;
+
   constructor(private lineService: LineService) {
   }
 

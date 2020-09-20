@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { CodeSideComponent } from './components/trace/code-side/code-side.component';
 import { CodeLineComponent } from './components/trace/code-side/code-line/code-line.component';
 import { TraceComponent } from './components/trace/trace.component';
+import { WidgetSideComponent } from './components/trace/widget-side/widget-side.component';
+import { FileWidgetComponent } from './components/trace/widget-side/file-widget/file-widget.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,9 +17,12 @@ import { TraceComponent } from './components/trace/trace.component';
     CodeSideComponent,
     CodeLineComponent,
     TraceComponent,
+    WidgetSideComponent,
+    FileWidgetComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule
   ],

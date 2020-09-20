@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CodeHttpService} from '../../../services/code-http.service';
 import {log} from 'util';
+import {LineService} from '../../../services/line.service';
+import {CodeModel} from '../../../models/code.model';
 
 @Component({
   selector: 'app-code-side',
@@ -8,16 +10,13 @@ import {log} from 'util';
   styleUrls: ['./code-side.component.css']
 })
 export class CodeSideComponent implements OnInit {
+  codeModel: CodeModel;
 
-  constructor(private codeHttpService: CodeHttpService) {
+  constructor(private codeHttpService: CodeHttpService, private lineService: LineService) {
   }
 
   ngOnInit(): void {
+    this.codeModel = this.lineService.codeModel;
   }
 
-  onClick() {
-    this.codeHttpService.postCoobitFileLocation({filePath: 'hello world!'}).subscribe(
-      value => console.log('sucess')
-    );
-  }
 }

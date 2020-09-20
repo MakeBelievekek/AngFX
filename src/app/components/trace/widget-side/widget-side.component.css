@@ -1,0 +1,13 @@
+.widget-side-container {
+  display: grid;
+  grid-template-columns: 400px 400px;
+  grid-auto-flow: row;
+}
+
+.first-item {
+  grid-column: 1 / 2;
+}
+
+.widget-item {
+  grid-column: 1 / 2;
+}

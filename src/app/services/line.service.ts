@@ -1,11 +1,13 @@
 import {Injectable} from '@angular/core';
 import {CodeLineModel} from '../models/codeLine.model';
+import {CodeModel} from '../models/code.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LineService {
   lineModel: CodeLineModel;
+  codeModel: CodeModel;
 
   constructor() {
     this.lineModel = {

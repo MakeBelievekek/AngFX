@@ -1,0 +1,14 @@
+.trace-container {
+  display: grid;
+  grid-template-columns: 995px 800px;
+  grid-template-areas: "code-side widget-side";
+  justify-content: center;
+}
+
+.trace-code-side {
+  grid-area: code-side;
+}
+
+.trace-widget-side {
+  grid-area: widget-side;
+}

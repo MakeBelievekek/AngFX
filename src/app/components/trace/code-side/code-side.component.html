@@ -1,4 +1,5 @@
 <div class="code-side-container">
-   <app-code-line></app-code-line>
-  <button (click)="onClick()">Nyomj meg</button>
+  <ng-container *ngFor="let codeLine of this?.codeModel?.codeLines">
+   <app-code-line [codeLine]="codeLine"></app-code-line>
+  </ng-container>
 </div>
