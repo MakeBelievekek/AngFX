@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {CodeModel} from '../models/code.model';
 import {FileLocationModel} from '../models/fileLocation.model';
 
-const CODE_BASE_URL = 'http://localhost:8080/api/coblist';
+const CODE_BASE_URL = 'http://localhost:8080/api/file';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +12,11 @@ export class CodeHttpService {
 
   constructor(private http: HttpClient) { }
 
-  postCoobitFileLocation(fileLocation: FileLocationModel): Observable<CodeModel> {
-    return this.http.post<CodeModel>(CODE_BASE_URL, fileLocation);
+  postCooblistFileLocation(fileLocation: FileLocationModel): Observable<CodeModel> {
+    return this.http.post<CodeModel>(CODE_BASE_URL + '/coblist', fileLocation);
+  }
+
+  postTraceFileLocation(fileLocation: FileLocationModel): Observable<CodeModel> {
+    return this.http.post<CodeModel>(CODE_BASE_URL + '/trace', fileLocation);
   }
 }

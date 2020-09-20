@@ -12,8 +12,7 @@ import {LineService} from '../../../../services/line.service';
 export class FileWidgetComponent implements OnInit {
   @ViewChild('coblist') coblistElement: ElementRef;
   coblistPath: string;
-  codeModel: CodeModel;
-
+  tracePath: string;
   constructor(private codeHttpService: CodeHttpService, private lineService: LineService) {
   }
 
@@ -23,11 +22,20 @@ export class FileWidgetComponent implements OnInit {
 
   getCoblist() {
     if (this.coblistPath) {
-      this.codeHttpService.postCoobitFileLocation({filePath: this.coblistPath}).subscribe(
+      this.codeHttpService.postCooblistFileLocation({filePath: this.coblistPath}).subscribe(
         value => {
           this.lineService.codeModel = (value as CodeModel);
           console.log('ez az amit nézel: ', this.lineService.codeModel);
         }
+      );
+    }
+  }
+
+  getTrace() {
+
+    if (this.tracePath) {
+      this.codeHttpService.postTraceFileLocation({filePath: this.tracePath}).subscribe(
+        value => value
       );
     }
   }

@@ -13,14 +13,12 @@ export class CodeLineComponent implements OnInit {
   @HostBinding('style.backgroundColor') backgroundColor: SafeStyle;
   @Input() setBackgroundColor: string;
   @Input() codeLine: CodeLineModel;
-  @Input() codeModel: CodeModel;
 
   constructor(private lineService: LineService) {
   }
 
   ngOnInit(): void {
     this.backgroundColor = this.setBackgroundColor;
-    this.codeLine = this.lineService.lineModel;
   }
 
 }
