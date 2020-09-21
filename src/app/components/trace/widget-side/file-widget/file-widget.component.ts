@@ -18,7 +18,8 @@ export class FileWidgetComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.lineService.codeModel.codeLines);
+    this.tracePath = 'C:\\Users\\Pupu\\Desktop\\res\\trace.txt';
+    this.coblistPath = 'C:\\Users\\Pupu\\Desktop\\res\\kek.txt';
   }
 
 
@@ -42,12 +43,6 @@ export class FileWidgetComponent implements OnInit {
         }
       );
     }
-  }
-
-  takeMeHome() {
-    this.lineService.omniStatements[322].lineBackgroundColor = 'yellow';
-    this.lineService.omniStatements[322].activeLine.next('baszodjmeg');
-    console.log(this.lineService.omniStatements[322]);
   }
 }
 

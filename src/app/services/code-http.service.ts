@@ -19,4 +19,8 @@ export class CodeHttpService {
   postTraceFileLocation(fileLocation: FileLocationModel): Observable<CodeModel> {
     return this.http.post<CodeModel>(CODE_BASE_URL + '/trace', fileLocation);
   }
+
+  redirect(): Observable<any> {
+    return this.http.get<any>(CODE_BASE_URL);
+  }
 }

@@ -1,0 +1,10 @@
+<div class="file-statement-go-to">
+<input type="text" [(ngModel)]="this.singleStatement" size="5" placeholder="statement">
+<button (click)="goToStatement()">vigyél oda</button>
+
+</div>
+<div class="file-statement-player">
+  <input type="text" [(ngModel)]="this.startingOrder" size="5" placeholder="stmntToStart">
+  <button (click)="previousStatement()">prev</button>
+  <button (click)="nextStatement()">next</button>
+</div>

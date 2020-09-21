@@ -1,0 +1,68 @@
+<div class="debugger-flex-container">
+  <div class="debugger-pgm-item" *ngFor="let debuggerM of this.debuggerModelList; index as j">
+    <label for="pgm">PGM: </label>
+    <input type="text" [(ngModel)]="debuggerM.program" id="pgm" placeholder="program">
+    <div class="debugger-bkp-panel">
+      <div class="debugger-item" *ngFor="let bkpEntity of debuggerM.bkpList; index as i">
+        <label>BKP: </label>
+        <input type="text" [(ngModel)]="bkpEntity.statement" placeholder="addbkp">
+        <label>Var 1 {{debuggerM.program}} BKP {{bkpEntity.statement}}</label>
+        <input type="text" [(ngModel)]="this.debuggerM.bkpList[i].pgmvar1" placeholder="pgmVar">
+        <ng-container *ngIf="this.debuggerM.bkpList[i].pgmvar1 ||this.debuggerM.bkpList[i].pgmvar2">
+          <label>Var 2 {{debuggerM.program}} BKP {{bkpEntity.statement}}</label>
+          <input type="text"
+                 [(ngModel)]="this.debuggerM.bkpList[i].pgmvar2" placeholder="pgmVar">
+        </ng-container>
+        <ng-container *ngIf="this.debuggerM.bkpList[i].pgmvar2 || this.debuggerM.bkpList[i].pgmvar3">
+          <label>Var 3 {{debuggerM.program}} BKP {{bkpEntity.statement}}</label>
+          <input type="text"
+                 [(ngModel)]="this.debuggerM.bkpList[i].pgmvar3" placeholder="pgmVar">
+        </ng-container>
+        <ng-container *ngIf="this.debuggerM.bkpList[i].pgmvar3 || this.debuggerM.bkpList[i].pgmvar4">
+          <label>Var 4 {{debuggerM.program}} BKP {{bkpEntity.statement}}</label>
+          <input type="text"
+                 [(ngModel)]="this.debuggerM.bkpList[i].pgmvar4" placeholder="pgmVar">
+        </ng-container>
+        <ng-container *ngIf="this.debuggerM.bkpList[i].pgmvar4 || this.debuggerM.bkpList[i].pgmvar5">
+          <label>Var 5 {{debuggerM.program}} BKP {{bkpEntity.statement}}</label>
+          <input type="text"
+                 [(ngModel)]="this.debuggerM.bkpList[i].pgmvar5" placeholder="pgmVar">
+        </ng-container>
+        <ng-container *ngIf="this.debuggerM.bkpList[i].pgmvar5 || this.debuggerM.bkpList[i].pgmvar6">
+          <label>Var 6 {{debuggerM.program}} BKP {{bkpEntity.statement}}</label>
+          <input type="text"
+                 [(ngModel)]="this.debuggerM.bkpList[i].pgmvar6" placeholder="pgmVar">
+        </ng-container>
+        <ng-container *ngIf="this.debuggerM.bkpList[i].pgmvar6 || this.debuggerM.bkpList[i].pgmvar7">
+          <label>Var 7 {{debuggerM.program}} BKP {{bkpEntity.statement}}</label>
+          <input type="text"
+                 [(ngModel)]="this.debuggerM.bkpList[i].pgmvar7" placeholder="pgmVar">
+        </ng-container>
+        <ng-container *ngIf="this.debuggerM.bkpList[i].pgmvar7 || this.debuggerM.bkpList[i].pgmvar8">
+          <label>Var 8 {{debuggerM.program}} BKP {{bkpEntity.statement}}</label>
+          <input type="text"
+                 [(ngModel)]="this.debuggerM.bkpList[i].pgmvar8" placeholder="pgmVar">
+        </ng-container>
+        <ng-container *ngIf="this.debuggerM.bkpList[i].pgmvar8 || this.debuggerM.bkpList[i].pgmvar9">
+          <label>Var 9 {{debuggerM.program}} BKP {{bkpEntity.statement}}</label>
+          <input type="text"
+                 [(ngModel)]="this.debuggerM.bkpList[i].pgmvar9" placeholder="pgmVar">
+        </ng-container>
+        <ng-container *ngIf="this.debuggerM.bkpList[i].pgmvar9  || this.debuggerM.bkpList[i].pgmvar10">
+          <label>Var 10 {{debuggerM.program}} BKP {{bkpEntity.statement}}</label>
+          <input type="text"
+                 [(ngModel)]="this.debuggerM.bkpList[i].pgmvar10" placeholder="pgmVar">
+        </ng-container>
+        <button (click)="handleBkp('rmv', j, i)">rmv bkp</button>
+      </div>
+    </div>
+    <button (click)="handleBkp('add', j)">add bkp</button>
+    <button (click)="handlePgm('rmv',j)">RMV PGM</button>
+  </div>
+
+</div>
+<button (click)="handlePgm('add')">ADD NEW PGM</button>
+<button (click)="getData()">set debug</button>
+<label for="batch" >batch</label>
+<input type="checkbox" id="batch" [(ngModel)]="multiPgmDebugger.batch">
+

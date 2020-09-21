@@ -15,12 +15,12 @@
 }
 
 .order {
-  grid-column: 3 / 4;
+  grid-column: 4 / 5;
   text-align: right;
 }
 
 .statement {
-  grid-column: 4 / 5;
+  grid-column: 3 / 4;
   text-align: right;
 }
 

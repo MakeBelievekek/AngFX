@@ -11,6 +11,8 @@ import { WidgetSideComponent } from './components/trace/widget-side/widget-side.
 import { FileWidgetComponent } from './components/trace/widget-side/file-widget/file-widget.component';
 import {FormsModule} from '@angular/forms';
 import { LineManipulatorDirective } from './Directives/line-manipulator.directive';
+import { PlayerComponent } from './components/trace/widget-side/player/player.component';
+import { DebuggerComponent } from './components/trace/widget-side/debugger/debugger.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { LineManipulatorDirective } from './Directives/line-manipulator.directiv
     WidgetSideComponent,
     FileWidgetComponent,
     LineManipulatorDirective,
+    PlayerComponent,
+    DebuggerComponent,
   ],
   imports: [
     BrowserModule,

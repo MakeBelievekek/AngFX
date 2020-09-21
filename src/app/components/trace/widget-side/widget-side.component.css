@@ -3,8 +3,10 @@
   grid-template-columns: 400px 400px;
   grid-auto-flow: row;
   position: sticky;
+  overflow: auto;
   align-self: start;
   top: 10px;
+  max-height: 90vh;
 
 }
 
