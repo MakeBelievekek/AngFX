@@ -10,6 +10,11 @@ export interface BkpModel {
   pgmvar8: string;
   pgmvar9: string;
   pgmvar10: string;
+  hasCondition: boolean;
+  pgmvarForCondition: string;
+  condition: string;
+  conditionValue: string;
+  isConditionValueNumber: boolean;
 }
 
 export class BkpModelClass implements BkpModel {
@@ -24,6 +29,12 @@ export class BkpModelClass implements BkpModel {
   pgmvar8 = null;
   pgmvar9 = null;
   pgmvar10 = null;
+  hasCondition = false;
+  pgmvarForCondition = null;
+  condition = null;
+  conditionValue = null;
+  isConditionValueNumber = false;
+
   constructor() {
   }
 }

@@ -1,6 +1,6 @@
 .widget-side-container {
   display: grid;
-  grid-template-columns: 400px 400px;
+  grid-template-columns: 400px;
   grid-auto-flow: row;
   position: sticky;
   overflow: auto;

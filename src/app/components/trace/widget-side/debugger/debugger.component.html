@@ -53,16 +53,35 @@
           <input type="text"
                  [(ngModel)]="this.debuggerM.bkpList[i].pgmvar10" placeholder="pgmVar">
         </ng-container>
+        <ng-container *ngIf="this.debuggerM.bkpList[i].hasCondition">
+          <select [(ngModel)]="debuggerM.bkpList[i].condition">
+            <option *ngFor="let option of this.conditionOptions.compare"
+                    value="{{option}}"
+            >{{option}}</option>
+          </select>
+          <select [(ngModel)]="debuggerM.bkpList[i].pgmvarForCondition">
+            <option *ngFor="let varNum of this.conditionOptions.varNum"
+                    value="{{varNum}}"
+            >{{varNum}}</option>
+          </select>
+          <input type="text" [(ngModel)]="this.debuggerM.bkpList[i].conditionValue" placeholder="whatToCompare">
+          <div style="display: flex">
+            <label for="isNumeric">is numeric what u compare to</label>
+            <input type="checkbox" id="isNumeric" [(ngModel)]="this.debuggerM.bkpList[i].isConditionValueNumber">
+          </div>
+        </ng-container>
+        <button (click)="conditionHandler(debuggerM.bkpList[i])">condition</button>
         <button (click)="handleBkp('rmv', j, i)">rmv bkp</button>
       </div>
     </div>
     <button (click)="handleBkp('add', j)">add bkp</button>
+    <button (click)="sendBKP(debuggerM)">JUST BKP</button>
     <button (click)="handlePgm('rmv',j)">RMV PGM</button>
   </div>
 
 </div>
 <button (click)="handlePgm('add')">ADD NEW PGM</button>
 <button (click)="getData()">set debug</button>
-<label for="batch" >batch</label>
+<label for="batch">batch</label>
 <input type="checkbox" id="batch" [(ngModel)]="multiPgmDebugger.batch">
 

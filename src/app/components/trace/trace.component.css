@@ -1,7 +1,8 @@
 .trace-container {
   display: grid;
-  grid-template-columns: 995px 800px;
+  grid-template-columns: 995px 400px;
   grid-template-areas: "code-side widget-side";
+  grid-column-gap: 10px;
   justify-content: center;
 }
 

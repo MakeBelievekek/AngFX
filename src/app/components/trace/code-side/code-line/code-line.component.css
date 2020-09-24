@@ -1,6 +1,6 @@
 .code-line {
   display: grid;
-  grid-template-columns: 65px 700px 65px 65px;
+  grid-template-columns: 65px 800px 65px 65px;
   grid-template-areas: "lineNum code order statement";
   align-items: center;
 }
@@ -14,13 +14,13 @@
   grid-column: 2 / 3;
 }
 
-.order {
-  grid-column: 4 / 5;
+.statement {
+  grid-column: 3 / 4;
   text-align: right;
 }
 
-.statement {
-  grid-column: 3 / 4;
+.order {
+  grid-column: 4 / 5;
   text-align: right;
 }
 

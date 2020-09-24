@@ -12,6 +12,12 @@ import {DebuggerHttpService} from '../../../../services/debugger-http.service';
 export class DebuggerComponent implements OnInit {
   debuggerModelList: Array<DebuggerModel> = [];
   multiPgmDebugger: MultiplePgmModel;
+  conditionOptions = {
+    compare: ['*EQ', '*GT', '*LT', '*NE', '*GE', '*NL', '*LE', '*NG', '*CT']
+    , varNum: ['*PGMVAR1', '*PGMVAR2', '*PGMVAR3', '*PGMVAR4', '*PGMVAR5', '*PGMVAR6', '*PGMVAR7', '*PGMVAR8', '*PGMVAR9', '*PGMVAR10']
+  };
+
+
   constructor(private debuggerHttpService: DebuggerHttpService) {
   }
 
@@ -48,6 +54,19 @@ export class DebuggerComponent implements OnInit {
     }
   }
 
+  sendBKP(debuggerM: DebuggerModel) {
+    this.debuggerHttpService.sendBkp(debuggerM).subscribe();
+  }
+
+  conditionHandler(bkp: BkpModel) {
+    bkp.hasCondition = !bkp.hasCondition;
+    if (!bkp.hasCondition) {
+      bkp.condition = null;
+      bkp.conditionValue = null;
+      bkp.isConditionValueNumber = false;
+      bkp.pgmvarForCondition = null;
+    }
+  }
 }
 
 //
